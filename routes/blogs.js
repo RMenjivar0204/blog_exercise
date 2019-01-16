@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('');
+var db = require('../models/database.js');
 var bodyParser = require('body-parser');
 
 router.get('/blogs', (req, res)=>{
@@ -17,5 +17,22 @@ router.get('/blogs', (req, res)=>{
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.post('/blogs', (req, res)=>{
+    var title = req.body.title;
+    var name = req.body.name;
+    var category = req.body.category;
+    var content = req.body.content;
+    var date = req.body.date;
+    var imageURL = req.body.imageURL;
 
-})
+    db.none("INSERT INTO blogs (title, author_id, category_id, content, published_on, imageurl) VALUES($1, $2, $3, $4, $5)", [title, name, category, content, date, imageURL])
+    .then((data)=>{
+        db.any('SELECT * FROM blogs')
+        .then((results)=>{
+            res.render('blogs', {
+                blogs: results
+            })
+        })
+    })
+});
+
+module.exports = router;

@@ -3,21 +3,21 @@ var app = express();
 var bluebird = require('bluebird');
 const fileUpload = require('express-fileupload');
 
-
-
-app.set('views engine', 'ejs');
+app.set('view engine', 'ejs');
 app.set('views', 'views' )
 
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
-
-    res.send('Home')
+    res.render('index')
 })
 
 app.get('/upload',  (req, res)=>{
-
     res.render('upload');
+})
+
+app.get('/blogs', (req, res) => {
+    res.render('blogs')
 })
 
 app.use(fileUpload());
