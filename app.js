@@ -14,9 +14,9 @@ app.use(require('./routes/index'));
 //     res.render('index')
 // })
 
-app.get('/upload',  (req, res)=>{
-    res.render('upload');
-})
+// app.get('/upload',  (req, res)=>{
+//     res.render('upload');
+// })
 
 // app.get('/blogs', (req, res) => {
 //     res.render('blogs')
