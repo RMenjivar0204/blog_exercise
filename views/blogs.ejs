@@ -7,6 +7,16 @@
     <title>Blogs</title>
 </head>
 <body>
-    BLOGS
+    <section class='posted'>
+        <% blogs.forEach(item =>{ %>
+        <p class='title'><%= item.title %></p>
+        <p class='author'><%=item.author_id %></p>
+        <p class='published_date'><%=item.posted_on %></p>
+        <p class='category'><%=item.category_id %></p>
+        <div class='content'><%=item.content %>
+
+        </div>
+        <%   }) %>
+        </section>
 </body>
 </html>
