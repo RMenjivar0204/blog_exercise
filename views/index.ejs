@@ -11,18 +11,16 @@
     <form action="/" method="POST">
         <p>Author: 
         <select name='name'>
-            <option value="1">Hailey Douglas</option>
-            <option value="2">Mason Weasley</option>
-            <option value="3">Marvin Exton</option>
-            <option value="4">Bryon Wooldridge</option>
+            <% authors.forEach(item=>{ %>
+            <option value="<%=item.id%>"><%=item.fname%> <%=item.lname%></option>
+            <% }) %>
         </select>
         </p>
         <p>Category:
         <select name='category'>
-            <option value="1">Music</option>
-            <option value="2">Fashion</option>
-            <option value="3">Car</option>
-            <option value="4">Beauty</option>
+            <% categories.forEach(item=>{ %>
+            <option value="<%=item.id%>"><%=item.name%></option>
+            <% }) %>
         </select>
         </p>
         <p>Title: <br><input type="text" name="title"></p>

@@ -13,7 +13,16 @@ router.get('/blogs', (req, res)=>{
 })
 
 router.get('/', (req, res)=>{
-        res.render('index')
+    db.multi('SELECT * FROM authors; SELECT * FROM categories')
+    .then((data)=>{
+        res.render('index', {
+            authors: data[0],
+            categories:data[1]
+        })
+    })
+    
+    
+//        res.render('index')
 })
 
 router.use(bodyParser.urlencoded({extended: false}));
