@@ -8,6 +8,7 @@ app.set('views', 'views' )
 
 app.use(express.static('public'));
 app.use(require('./routes/index'));
+// app.use(require('./routes/blogs'));
 
 // app.get('/', (req, res)=>{
 //     res.render('index')

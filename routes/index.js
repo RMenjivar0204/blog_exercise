@@ -3,15 +3,20 @@ var router = express.Router();
 var db = require('../models/database.js');
 var bodyParser = require('body-parser');
 
-router.get('/', (req, res)=>{
-
+router.get('/blogs', (req, res)=>{
     db.any('SELECT * FROM blogs')
     .then((data)=>{
+        res.render('blogs', {
+            blogs: data
+        })
+    })
+})
+
+router.get('/', (req, res)=>{
 
         res.render('index', {
             blogs: data
         })
-    })
 })
 
 router.use(bodyParser.urlencoded({extended: false}));
