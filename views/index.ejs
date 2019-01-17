@@ -9,13 +9,30 @@
 <body>
     
     <form action="/" method="POST">
-        Title: <br><input type="text" name="title"><br>
-        Body: <br><textarea type="text" name="body" rows=6></textarea><br>
+        <p>Author: 
+        <select name='name'>
+            <option value="1">Hailey Douglas</option>
+            <option value="2">Mason Weasley</option>
+            <option value="3">Marvin Exton</option>
+            <option value="4">Bryon Wooldridge</option>
+        </select>
+        </p>
+        <p>Category:
+        <select name='category'>
+            <option value="1">Music</option>
+            <option value="2">Fashion</option>
+            <option value="3">Car</option>
+            <option value="4">Beauty</option>
+        </select>
+        </p>
+        <p>Title: <br><input type="text" name="title"></p>
+        <p>Body: <br><textarea type="text" name="body" rows=6></textarea>
+        </p>
         <input type="file" name="myUpload"><br>
-
+        
         <input type="submit" value="Submit">
     </form>
-
+ 
 
 </body>
 </html>
