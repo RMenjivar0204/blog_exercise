@@ -13,10 +13,7 @@ router.get('/blogs', (req, res)=>{
 })
 
 router.get('/', (req, res)=>{
-
-        res.render('index', {
-            blogs: data
-        })
+        res.render('index')
 })
 
 router.use(bodyParser.urlencoded({extended: false}));
@@ -40,7 +37,7 @@ router.post('/', (req, res)=>{
     .then((data)=>{
         db.any('SELECT * FROM blogs')
         .then((results)=>{
-            res.render('index', {
+            res.render('blogs', {
                 blogs: results
             })
         })
